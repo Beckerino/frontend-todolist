@@ -15,21 +15,27 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    act_nova(payload) {
+    act_post_atividade(payload) {
       Vue.http.post(URL + "/new" + payload).then(response => {
         this.act_atividades();
-        console.log(response.body);
+        return response;
       });
     },
-    act_atividades({ commit }) {
+    act_get_atividade({ commit }) {
       Vue.http.get(URL + "/get").then(response => {
         commit("mut_atividades", response.body);
       });
     },
-    act_deletar(payload) {
+    act_update_atividade(payload) {
+      Vue.http.del(URL + "/update/" + payload).then(response => {
+        this.act_atividades();
+        return response;
+      });
+    },
+    act_del_atividade(payload) {
       Vue.http.del(URL + "/delete/" + payload).then(response => {
-        //RESPONSAVEL POR ENVIAR AO USUARIO MENSAGEM OK
-        console.log(response.body);
+        this.act_atividades();
+        return response;
       });
     }
   },
