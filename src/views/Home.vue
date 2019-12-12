@@ -9,7 +9,7 @@
         :virtual-scroll-sticky-start="48"
         row-key="id"
         title="Atividades"
-        :data="ActAtividades()"
+        :data="Atividades"
         :columns="columns"
       />
     </div>
@@ -36,20 +36,22 @@ export default {
         {
           name: "name",
           required: true,
-          label: "ID",
+          label: "#",
           align: "left",
-          field: row => row.name,
+          field: row => row.id,
           sortable: true
         },
         {
           name: "title",
           required: true,
           label: "Titulo",
+          field: row => row.title,
           align: "left"
         },
         {
           name: "content",
           align: "left",
+          field: row => row.content,
           label: "Conteudo"
         },
         {
