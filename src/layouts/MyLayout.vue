@@ -48,7 +48,7 @@
             <q-icon name="delete" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Deletar</q-item-label>
+            <q-item-label>Excluir</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable to="/Alterar">
