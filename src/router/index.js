@@ -7,12 +7,24 @@ const routes = [
   {
     path: "/",
     component: () => import("../layouts/MyLayout.vue"),
-    children: [{ path: "", component: () => import("../views/Home.vue") }]
-  },
-  {
-    path: "/About",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [{ path: "", component: () => import("../views/About.vue") }]
+    children: [
+      {
+        path: "/Home",
+        component: () => import("../views/Home.vue")
+      },
+      {
+        path: "/Cadastrar",
+        component: () => import("../views/Cadastrar.vue")
+      },
+      {
+        path: "/Excluir",
+        component: () => import("../views/Excluir.vue")
+      },
+      {
+        path: "/Alterar",
+        component: () => import("../views/Alterar.vue")
+      }
+    ]
   }
 ];
 

@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Github Demos
+          To Do List
         </q-toolbar-title>
 
         <div>Version v{{ this.version }}</div>
@@ -26,29 +26,37 @@
       content-class="bg-grey-2"
     >
       <q-list>
-        <q-item-label header>Github Demos</q-item-label>
-        <q-item clickable to="/Users">
+        <q-item-label header>Atividades</q-item-label>
+        <q-item clickable to="/Home">
           <q-item-section avatar>
             <q-icon name="list" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>List</q-item-label>
+            <q-item-label>Listagem</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable to="/User">
-          <q-item-section avatar>
-            <q-icon name="person" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>User</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable to="/Repos">
+        <q-item clickable to="/Cadastrar">
           <q-item-section avatar>
             <q-icon name="folder" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Repositories</q-item-label>
+            <q-item-label>Cadastrar</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable to="/Excluir">
+          <q-item-section avatar>
+            <q-icon name="delete" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Excluir</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable to="/Alterar">
+          <q-item-section avatar>
+            <q-icon name="update" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Alterar</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
