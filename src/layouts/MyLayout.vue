@@ -61,7 +61,7 @@
         </q-item>
       </q-list>
     </q-drawer>
-
+    <notifications group="foo" />
     <q-page-container>
       <router-view />
     </q-page-container>
