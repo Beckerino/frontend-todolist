@@ -5,23 +5,45 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "",
+    component: () => import("../layouts/MyLayout.vue")
+  },
+  {
+    path: "/Home",
     component: () => import("../layouts/MyLayout.vue"),
     children: [
       {
-        path: "/Home",
+        path: "",
         component: () => import("../views/Home.vue")
-      },
+      }
+    ]
+  },
+  {
+    path: "/Cadastrar",
+    component: () => import("../layouts/MyLayout.vue"),
+    children: [
       {
-        path: "/Cadastrar",
+        path: "",
         component: () => import("../views/Cadastrar.vue")
-      },
+      }
+    ]
+  },
+  {
+    path: "/Excluir",
+    component: () => import("../layouts/MyLayout.vue"),
+    children: [
       {
-        path: "/Excluir",
+        path: "",
         component: () => import("../views/Excluir.vue")
-      },
+      }
+    ]
+  },
+  {
+    path: "/Alterar",
+    component: () => import("../layouts/MyLayout.vue"),
+    children: [
       {
-        path: "/Alterar",
+        path: "",
         component: () => import("../views/Alterar.vue")
       }
     ]
