@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import Axios from "axios";
 Vue.use(Vuex);
 
-const URL = "http://172.16.27.50:9000";
+const URL = "https://pag-link-back.herokuapp.com:9000";
 const config = {
   auth: {
     username: "testeapipagamento",
