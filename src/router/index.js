@@ -1,52 +1,35 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
+import store from "../store";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "",
-    component: () => import("../layouts/MyLayout.vue")
+    path: "/debito",
+    name: "debito",
+    props: true,
+    component: () => import("../views/PagDebito.vue")
   },
   {
-    path: "/Home",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("../views/Home.vue")
-      }
-    ]
+    path: "/credito",
+    name: "credito",
+    component: () => import("../views/PagCredito.vue")
   },
   {
-    path: "/Cadastrar",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("../views/Cadastrar.vue")
-      }
-    ]
+    path: "/concluido",
+    name: "concluido",
+    component: () => import("../views/Concluido.vue")
   },
   {
-    path: "/Excluir",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("../views/Excluir.vue")
-      }
-    ]
+    path: "/error",
+    name: "error",
+    component: () => import("../views/Home.vue")
   },
   {
-    path: "/Alterar",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("../views/Alterar.vue")
-      }
-    ]
+    path: "/:token",
+    name: "home",
+    props: true,
+    component: () => import("../views/Home.vue")
   }
 ];
 
@@ -56,17 +39,21 @@ const router = new VueRouter({
   routes
 });
 
-// Always leave this as last one
-if (process.env.MODE !== "ssr") {
-  routes.push({
-    path: "*",
-    component: () => import("../layouts/MyLayout.vue"),
-    children: [
-      {
-        path: "",
-        component: () => import("../views/Error404.vue")
-      }
-    ]
-  });
-}
+router.beforeEach((to, from, next) => {
+  if (to.name == "home") {
+    next();
+  } else {
+    var token = store.getters.logado;
+    if (token) {
+      next();
+    } else {
+      Vue.notify({
+        group: "foo",
+        type: "error",
+        title: "Token não válido"
+      });
+      next("/home");
+    }
+  }
+});
 export default router;

@@ -4,15 +4,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./quasar";
-import VueResource from "vue-resource";
 import VueNativeNotification from "vue-notification";
+import VueLoading from "vue-loading-overlay";
+Vue.use(VueLoading);
+Vue.use(VueNativeNotification);
 Vue.config.productionTip = false;
-
-Vue.use(VueResource);
-Vue.use(VueNativeNotification, {
-  requestOnNotify: true
-});
-
+Vue.component("loading", VueLoading);
 new Vue({
   router,
   store,
